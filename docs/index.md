@@ -23,3 +23,31 @@ to get these projects running on your machine.
   - [RESOURCES.md](./module/RESOURCES.md)
   - [seaborn-datasets.md](./module/seaborn-datasets.md)
   - [TROUBLESHOOTING.md](./module/TROUBLESHOOTING.md)
+
+
+## Custom Project
+
+### Dataset
+I chose a multi-variate athletic profiling dataset tracking **1,000 professional athletes** (500 Association Football/Soccer players and 500 American Football players). The dataset contains structured structural vectors for each athlete, including group metrics and physical dimensions captured under the exact column indexes: Sport, Name, Age, Height (inches), Height (cm) , and Weight (kgs).
+
+### Signals
+The analysis monitors three key numeric signals, including an advanced engineered feature:
+* **Height (cm) **: A baseline independent numeric vector mapping structural skeletal frame size.
+* **Weight (kgs)**: A baseline independent numeric vector mapping total mass distributions.
+* **bmi (Engineered Feature)**: A composite normalized metric engineered inside Section 5 using the mathematical formula: {Weight (kgs)} / ({Height (cm) } / 100)^2$. This signal functions as a standardized proxy for physical density, filtering out vertical scale variations to evaluate mass relative to total frame size.
+
+### Experiments
+My modification experiments focused on executing two distinct data transformation pipelines:
+1. **Dynamic Mapping with Data Isolation**: Modified the ingestion layout in Section 5 to decouple from global constants and isolate row operations. The routine used explicit, case-sensitive hardcoded indexing keys (Height (cm) and Weight (kgs)) to bypass variable lookup mismatches and filter out missing observation records safely without dropping index frames.
+2. **Bi-Modal Density Visualization Cross-Filtering**: Configured Section 8 plotting cells to run an advanced distribution overlay using Seaborn box plots and Kernel Density Estimate (sns.kdeplot) curves stratified explicitly across the Sport categorical boundary.
+
+### Results
+The experiments yielded flawless execution pipelines and key physical insights:
+* **Soccer Player Clustering**: Soccer athletes showed a tightly packed, highly symmetrical normal distribution profile, with calculated BMI signals focusing tightly in the optimal endurance range between 22 and 24.
+* **American Football Player Bi-Modality**: The American Football roster signal exhibited a massive right-skewed variance profile. The visualization captured distinct bi-modal peak structures, highlighting the extreme structural differences between lean skill position players and high-mass linemen.
+* **System Execution**: Section 6, 7, and 8 cell matrices compiled with zero runtime failures, outputting perfect summary statistical tables and correlation matrices.
+
+### Interpretation
+The exploratory analytics workflow provides valuable domain intelligence regarding physiological adaptations forced by professional sport classifications:
+* **Normalizing Frame Size**: Looking at raw metrics like Weight (kgs) alone masks true body composition traits because taller athletes naturally weigh more. Transforming the features into a standardized bmi signal gives our analytics engine an unweighted density vector to compare athletes fairly regardless of height.
+* **System Intelligence**: The massive variance gap and bi-modal peaks found in American Football demonstrate that a one-size-fits-all training or nutritional benchmark cannot be applied to football datasets. For predictive modeling or classification workflows down the line, the system must treat football rosters with highly localized segmentation, whereas soccer rosters can safely be evaluated using tight, uniform aggregate benchmarks.
